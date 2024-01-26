@@ -1,1 +1,5 @@
 Listo para ser controlado desde Git.
+
+Por fin me hacen caso
+estuve untracked mucho tiempo
+ahora estoy en staged
