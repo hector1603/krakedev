@@ -23,6 +23,13 @@ saludar = function() {
     let apellido = recuperarTexto("txtApellido");
     let edad = recuperarInt("txtEdad");
     let estatura = recuperarFlotante("txtEstatura");
+    let message = "Bienvenido " + nombre + " " + apellido; 
 
-    alert("Hola " + nombre + " " + apellido);
+    mostrarTexto("lblTexto", message);
+}
+
+mostrarTexto = function(idComponente, message) {
+    let componente;
+    componente = document.getElementById("lblTexto")
+    componente.innerText = message;
 }
