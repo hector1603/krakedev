@@ -18,6 +18,18 @@ recuperarFlotante = function(idComponente) {
     return valorFlotante;
 }
 
+mostrarTexto = function(idComponente, message) {
+    let componente;
+    componente = document.getElementById(idComponente);
+    componente.innerText = message;
+}
+
+mostrarImagen = function(idComponente, rutaImagen) {
+    let componente;
+    componente = document.getElementById(idComponente);
+    componente.src = rutaImagen;
+}
+
 saludar = function() {
     let nombre = recuperarTexto("txtNombre");
     let apellido = recuperarTexto("txtApellido");
@@ -26,10 +38,5 @@ saludar = function() {
     let message = "Bienvenido " + nombre + " " + apellido; 
 
     mostrarTexto("lblTexto", message);
-}
-
-mostrarTexto = function(idComponente, message) {
-    let componente;
-    componente = document.getElementById("lblTexto")
-    componente.innerText = message;
+    mostrarImagen("lblImagen", "./img/saludar.gif");
 }
