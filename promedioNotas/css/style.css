@@ -1,0 +1,31 @@
+form {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Sans Unicode', sans-serif;
+    border: 1px solid #010101;
+    width: 190px;
+    padding: 15px;
+}
+input {
+    margin-top: 10px;
+}
+
+.input {
+    padding: 8px;
+}
+
+.button {
+    background-color: #0c72ff;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    padding: 8px;
+}
+.box-result {
+    text-align: center;
+}
+.result {
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', Verdana, sans-serif;
+    text-align: center;
+    border: 0;
+}

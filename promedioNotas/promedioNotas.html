@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Notas</title>
+
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <form>
+            <input type="text" class="input" id="parcialUno" placeholder="Primer parcial"><br>
+            <input type="text" class="input" id="parcialDos" placeholder="Segundo parcial"><br>
+            <input type="text" class="input" id="parcialTres" placeholder="Tercer parcial">
+            <input type="button" class="button" value="Calcular promedio" onclick="calcularPromedioNotas();">
+        </form>
+
+        <div class="box-result">
+            <h3 class="result" id="lblResultado">Promedio</h3>
+        </div>
+
+        <script src="./promedioNotas.js"></script>
+        <script src="./serviciosPromedioNotas.js"></script>
+        <script src="./utilitarios.js"></script>
+    </body>
+</html>
