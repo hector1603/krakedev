@@ -55,7 +55,7 @@ calcularValorTotal = function () {
 
     //8. Invocar a calcularIVA y lo que devuelve guardar en la variable valorIVA
     // El IVA debe calcularse sobre el valor del subtotal menos el descuento
-    valorIVA = calcularIVA(valorSubtotal - valorDescuento).toFixed(3);
+    valorIVA = calcularIVA(valorSubtotal - valorDescuento);
 
     //9. Mostrar el resultado en el componente lblValorIVA    
         /*
@@ -73,9 +73,11 @@ calcularValorTotal = function () {
 
             Si el caso de prueba es exitoso, hacer un commit
         */
-    mostrarTexto("lblValorIVA", valorIVA);
+    mostrarTexto("lblValorIVA", valorIVA.toFixed(3));
 
     //10. Invocar a calcularTotal y lo que devuelve guardar en la variable valorTotal
+    valorTotal =  calcularTotal(valorSubtotal, valorDescuento, valorIVA);
+
     //11. Mostrar el resultado en el componente lblTotal
     /*
         Caso de prueba: 
@@ -91,6 +93,7 @@ calcularValorTotal = function () {
 
                 Si el caso de prueba es exitoso, hacer un commit
        */
+    mostrarTexto("lblTotal", valorTotal);
             
     //12. Mostrar un resumen en el componente lblResumen, si no existe debe agregarlo
     /*
@@ -105,6 +108,15 @@ limpiar = function () {
         Dejar todas las cajas de texto con el valor cadena vacía, 0 ó 0.0 según el tipo de dato
         Dejar todos los textos de los montos con el valor 0.0
         Si funciona, hacer un commit
-     */
+    */
+    mostrarTextoEnCaja("txtProducto", "");
+    mostrarTextoEnCaja("txtCantidad", "");
+    mostrarTextoEnCaja("txtPrecio", "");
+    mostrarTextoEnCaja("txtPorcentajeDescuento", "");
+
+    mostrarTexto("lblSubtotal", "0.0");
+    mostrarTexto("lblDescuento", "0.0");
+    mostrarTexto("lblValorIVA", "0.0");
+    mostrarTexto("lblTotal", "0.0");
 }
 /* SI TODO FUNCIONA, HACER UN PUSH */
