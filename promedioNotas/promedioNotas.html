@@ -7,16 +7,18 @@
         <link rel="stylesheet" href="./css/style.css">
     </head>
     <body>
-        <form>
-            <input type="text" class="input" id="parcialUno" placeholder="Primer parcial"><br>
-            <input type="text" class="input" id="parcialDos" placeholder="Segundo parcial"><br>
-            <input type="text" class="input" id="parcialTres" placeholder="Tercer parcial">
-            <input type="button" class="button" value="Calcular promedio" onclick="calcularPromedioNotas();">
-        </form>
-
-        <div class="box-result">
-            <h3 class="result" id="lblResultado">Promedio</h3>
-            <img src="./img/buscando.gif" id="lblImagen" width="150px">
+        <div class="container">
+            <form>
+                <input type="text" class="input" id="parcialUno" placeholder="Primer parcial"><br>
+                <input type="text" class="input" id="parcialDos" placeholder="Segundo parcial"><br>
+                <input type="text" class="input" id="parcialTres" placeholder="Tercer parcial">
+                <input type="button" class="button" value="Calcular promedio" onclick="calcularPromedioNotas();">
+            </form>
+    
+            <div class="box-result">
+                <h3 class="result" id="lblResultado">Promedio</h3>
+                <img src="./img/buscando.gif" id="lblImagen" width="150px">
+            </div>
         </div>
 
         <script src="./promedioNotas.js"></script>
