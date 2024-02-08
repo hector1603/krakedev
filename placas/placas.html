@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Placas</title>
+
+    <link rel="stylesheet" href="placas.css" />
+</head>
+
+<body>
+    <main class="container">
+        <h1 class="title title-1">Validar placa</h1>
+
+        <form action="">
+            <h4 class="title title-4">Ingrese la placa</h4>
+            <input type="text" class="input" id="txtPlaca">
+            <input type="button" class="button" value="Validar" onclick="validarPlaca()">
+            <input type="button" class="button" value="Limpiar" onclick="limpiar()"/>
+        </form>
+
+        <h5 class="title msg" id="lblEstadoPlaca"></h5>
+        <h5 class="title msg" id="lblProvincia"></h5>
+        <h5 class="title msg" id="lblTipoVehiculo"></h5>
+        <h5 class="title msg" id="lblSalida"></h5>
+        <h5 class="title msg" id="lblMsgError"></h5>
+    </main>
+
+
+    <script src="placas.js"></script>
+    <script src="serviciosPlacas.js"></script>
+    <script src="utilitariosCadenas.js"></script>
+</body>
+
+</html>

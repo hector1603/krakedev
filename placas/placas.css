@@ -1,0 +1,52 @@
+body {
+    background-color:#0e1217;
+}
+
+.container {
+    text-align: center;
+}
+
+.title {
+    font-family: Poppins,sans-serif;
+}
+
+.title-1 {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 96px;
+    color: #0260a5;
+}
+
+.title-4 {
+    color: #ffffff;
+    font-weight: 100;
+}
+
+.input {
+    padding: 8px 0;
+    font-family: Poppins, sans-serif;
+}
+
+.button {
+    background-color: #0e1217;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    color: #ffffff;
+    padding: 9px;
+}
+
+.button:hover {
+    background-color:#0e121752;
+    cursor: pointer;
+}
+
+.msg {
+    color: #ffffff;
+}
+
+span {
+    color: #ffffff;
+    font-family: Poppins, sans-serif;
+    font-weight: 100;
+    font-size: 17px;
+}
