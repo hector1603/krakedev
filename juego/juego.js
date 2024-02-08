@@ -18,6 +18,8 @@ jugar = function(seleccionado) {
 
         if(puntosComputador == 5) {
             mostrarTexto("result", "El computador te ha vencido.")
+            puntosComputador = 0;
+            puntosUsuario = 0;
         }
     } else if(result == 2) {
         mostrarTexto("txtResultado", "GANASTE LA PARTIDA");
@@ -26,6 +28,8 @@ jugar = function(seleccionado) {
 
         if(puntosUsuario == 5) {
             mostrarTexto("result", "Has ganado el juego.")
+            puntosUsuario = 0;
+            puntosComputador = 0;
         }
     }
 }
