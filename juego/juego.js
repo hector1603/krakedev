@@ -2,7 +2,6 @@ let puntosUsuario = 0;
 let puntosComputador = 0;
 
 jugar = function(seleccionado) {
-    let msg;
     let elemento = generarElemento();
     let ruta = generarRuta(elemento);
 
@@ -14,7 +13,19 @@ jugar = function(seleccionado) {
         mostrarTexto("txtResultado", "EMPATE");
     } else if(result == 1) {
         mostrarTexto("txtResultado", "PERDISTE LA PARTIDA");
+        puntosComputador = puntosComputador + 1;
+        mostrarTexto("puntosComputador", puntosComputador);
+
+        if(puntosComputador == 5) {
+            mostrarTexto("result", "El computador te ha vencido.")
+        }
     } else if(result == 2) {
         mostrarTexto("txtResultado", "GANASTE LA PARTIDA");
+        puntosUsuario = puntosUsuario + 1;
+        mostrarTexto("puntosUsuario", puntosUsuario);
+
+        if(puntosUsuario == 5) {
+            mostrarTexto("result", "Has ganado el juego.")
+        }
     }
 }

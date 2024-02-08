@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="juego.css"/>
 </head>
 <body>
+    <input type="button" value="Nueva partida" onclick="limpiar()">
     <h1>Juega piedra papel o tijera</h1>
 
     <img src="img/piedra.png" width="100px" alt="Piedra" id="imgPiedra" onclick="jugar('Piedra')">
@@ -13,6 +14,12 @@
     <img src="img/tijera.png" width="100px" alt="Tijera" id="imgTijera" onclick="jugar('Tijera')">
     <hr>
     <img src="" width="100px" id="imgComputador">
+
+    <div class="puntos">
+        <p>Hector:<span id="puntosUsuario"></span></p>
+        <p>Bender:<span id="puntosComputador"></span></p>
+        <h3 id="result"></h3>
+    </div>
 
     <h3 id="txtResultado"></h3>
 

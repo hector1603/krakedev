@@ -14,13 +14,9 @@ generarElemento = function() {
     } else if(mano === 3) {
         cadena = "Tijera";
     }
-/*
-    console.log(mano);
-    console.log(cadena);*/
     return cadena;
 }
 
-//generarElemento()
  
 determinarGanador = function(eleccionJugador1, eleccionJugador2) {
     let estado;
@@ -51,4 +47,10 @@ generarRuta = function(nombre) {
     return ruta;
 }
 
-generarRuta("Papel");
+limpiar = function() {
+    cambiarImagen("imgComputador", "");
+    mostrarTexto("txtResultado", "");
+    mostrarTexto("puntosComputador", "");
+    mostrarTexto("puntosUsuario", "");
+    mostrarTexto("result", "")
+}
