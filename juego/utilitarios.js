@@ -4,6 +4,11 @@ mostrarImagen=function(idComponente,rutaImagen){
     componente=document.getElementById(idComponente);
     componente.src =  rutaImagen;
 }
+cambiarImagen=function(idComponente,imagen){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.src=imagen;
+}
 mostrarTexto=function(idComponente,mensaje){
     let componente;
     componente=document.getElementById(idComponente);

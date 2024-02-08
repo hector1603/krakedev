@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="juego.css"/>
 </head>
 <body>
+    <h1>Juega piedra papel o tijera</h1>
+
+    <img src="img/piedra.png" width="100px" alt="Piedra" id="imgPiedra" onclick="jugar('Piedra')">
+    <img src="img/papel.png" width="100px" alt="Papel" id="imgPapel" onclick="jugar('Papel')">
+    <img src="img/tijera.png" width="100px" alt="Tijera" id="imgTijera" onclick="jugar('Tijera')">
+    <hr>
+    <img src="" width="100px" id="imgComputador">
+
+    <h3 id="txtResultado"></h3>
 
     <script src="juego.js"></script>
     <script src="serviciosJuego.js"></script>
