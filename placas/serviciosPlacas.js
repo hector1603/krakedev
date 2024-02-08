@@ -155,4 +155,6 @@ limpiar = function () {
     cmpProvicia.innerHTML = '';
     cmpTipo.innerHTML = '';
     cmpSalida.innerHTML = '';
+
+    console.log("Limpiaste toda la pantalla...");
 }
