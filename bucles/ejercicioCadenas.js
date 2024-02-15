@@ -45,3 +45,19 @@ buscarLetra = function(cadena, letra) {
         console.log("No existe");
     }
 }
+
+contarMayusculas = function(cadena) {
+    let letra;
+    let contador = 0;
+
+    for(let i = 0; i < cadena.length; i++) {
+        letra = cadena.charAt(i);
+        if(esMayuscula(letra)) {
+            contador++;
+        }
+    }
+
+    console.log(contador);
+}
+
+contarMayusculas("HoLaCoMoEsTaS");

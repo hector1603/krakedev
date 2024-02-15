@@ -36,3 +36,14 @@ recuperarFloat = function (idComponente) {
 limpiar = function() {
     cmpCadena = document.getElementById("lblCadena").value = '';
 }
+
+esMayuscula = function(caracter) {
+    let mayuscula = false;
+    let ascci = caracter.charCodeAt(0);
+    if(ascci > 64 && ascci < 91) {
+        mayuscula = true;
+    } else {
+        mayuscula = false;
+    }
+    return mayuscula;
+}
