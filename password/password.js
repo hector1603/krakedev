@@ -15,13 +15,15 @@ validarPassword = function (password) {
     let existeDigito = false;
     let caracterEspecial = false;
     let caracter;
+
+    // Valida que la contraseña ingresada tenga entre de 8 a 16 caracteres.
     if (password.length < 8 || password.length > 16) {
         resultado = "La contraseña debe tener entre 8 a 16 caracteres \n";
     } else {
-        resultado = resultado;
+        resultado = "";
     }
 
-    // Valida la existencia de al menos una letra mayuscula
+    // Valida la existencia de al menos una letra mayuscula.
     for (let i = 0; i < password.length; i++) {
         caracter = password.charAt(i);
         if (esMayuscula(caracter)) {
@@ -34,7 +36,7 @@ validarPassword = function (password) {
         resultado += " Debe contener al menos una letra mayuscula \n";
     }
 
-    // Valida la existencia de al menos un dígito
+    // Valida la existencia de al menos un dígito.
     for (let i = 0; i < password.length; i++) {
         caracter = password.charAt(i);
         if (esDigito(caracter)) {
