@@ -28,3 +28,20 @@ ejecutarInversa = function() {
     recorrerInversa(mensaje);
     mostrarTexto("lblCadena", inversa);
 }
+
+buscarLetra = function(cadena, letra) {
+    let letraIterada;
+    let existeLetra = false;
+    for(let i = 0; i < cadena.length; i++) {
+        letraIterada = cadena.charAt(i);
+        if(letraIterada == letra) {
+            existeLetra = true;
+        }
+    }
+
+    if(existeLetra == true) {
+        console.log("Existe la letra " + letra);
+    } else {
+        console.log("No existe");
+    }
+}

@@ -34,7 +34,5 @@ recuperarFloat = function (idComponente) {
 }
 
 limpiar = function() {
-    let cmpCadena;
-    cmpCadena = document.getElementById("lblCadena")
-    cmpCadena.innerHTML = "";
+    cmpCadena = document.getElementById("lblCadena").value = '';
 }
