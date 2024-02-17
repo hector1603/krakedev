@@ -1,5 +1,5 @@
 //No se olvide de respirar, mantenga la calma y demuestre lo que sabe
-let palabraSecreta;
+let palabraSecreta = "";
 
 esMayuscula = function(caracter) {
     let ascii = caracter.charCodeAt();
@@ -48,4 +48,26 @@ mostrarLetra = function(letra, posicion) {
     } else if(posicion == 4) {
         mostrarTexto("div4", letra);
     } 
+}
+
+validar = function(letra) {
+    let letrasEncontradas = 0;
+    let letraCadena;
+
+    for(let i = 0; i < palabraSecreta.length; i++) {
+        letraCadena = palabraSecreta.charAt(i);
+        if(letraCadena == letra) {
+            mostrarLetra(letra, i);
+            letrasEncontradas++;
+        }
+    }
+}
+
+ingresarLetra = function() {
+    let letraRecuperada = recuperarTexto("txtLetra");
+    if(esMayuscula(letraRecuperada)) {
+        validar(letraRecuperada);
+    } else {
+        alert("Solo se aceptan mayusculas.");
+    }
 }
