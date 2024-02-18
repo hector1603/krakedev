@@ -117,5 +117,4 @@ mostrarAhorcado = function() {
     } else if(errores == 9) {
         mostrarImagen("ahorcadoImagen", "Ahorcado_09.png"); 
     }
-    errores++;
 }
