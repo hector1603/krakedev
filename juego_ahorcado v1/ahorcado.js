@@ -88,6 +88,9 @@ ingresarLetra = function() {
         if(intentos == 10) {
             alert("Has perdido.");
             mostrarImagen("ahorcadoImagen", "gameOver.gif");
+            palabraSecreta = "";
+            document.getElementById("txtSecreta").value = '';
+            document.getElementById("txtLetra").value = '';
         }
     } else {
         alert("Solo se aceptan mayusculas.");
