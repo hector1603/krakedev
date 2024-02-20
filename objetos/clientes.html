@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Clientes</h1>
+
+    <input type="text" id="txtNombre" placeholder="Nombre"/>
+    <input type="text" id="txtEdad" placeholder="Edad"/>
+    <input type="text" id="txtCedula" placeholder="Cedula"/>
+
+    <input type="button" value="Agregar" onclick="crearCliente();"/>
+    <input type="button" value="Actualizar" onclick="guardarCambios();"><hr>
+
+    <input type="text" id="txtBuscarCedula" placeholder="Ingrese la cedula"/>
+    <input type="button" value="Buscar" onclick="ejecutarBusqueda();"><hr>
+
+    <input type="button" value="Mostrar clientes" onclick="mostrarClientes()">
+
+    <div id="tablaClientes">
+
+    </div>
+    
+
+    <script src="clientes.js"></script>
+    <script src="utilitarios.js"></script>
+</body>
+</html>
