@@ -291,3 +291,16 @@ validar = function (cedula, nombre, apellido, sueldo) {
         return true;
     }
 }
+
+
+buscarPorRol = function() {
+    let cedulaRecuperada = recuperarTexto("txtBusquedaCedulaRol");
+    let empleadoBuscado = buscarEmpleado(cedulaRecuperada);
+    if(empleadoBuscado != null) {
+        mostrarTexto("infoCedula", empleadoBuscado.cedula);
+        mostrarTexto("infoNombre", empleadoBuscado.nombre + " " + empleadoBuscado.apellido);
+        mostrarTexto("infoSueldo", empleadoBuscado.sueldo);
+    } else {
+        alert("No existe.");
+    }
+}
