@@ -65,6 +65,51 @@ guardar = function () {
     let valorSueldo = recuperarFloat("txtSueldo");
 
     let clienteValido = validar(valorCedula, valorNombre, valorApellido, valorSueldo);
+    if (clienteValido) {
+        let empleadoNuevo = {
+            cedula: valorCedula,
+            nombre: valorNombre,
+            apellido: valorApellido,
+            sueldo: valorSueldo
+        };
+
+        if (esNuevo) {
+            let agregado = agregarEmpleado(empleadoNuevo);
+            if (agregado) {
+                alert("Empleado guardado correctamente.");
+                mostrarEmpleados();
+                //guardarYDeshabilitar();
+                esNuevo = false;
+            } else {
+                alert("Ya existe el empleado con cedula " + valorCedula);
+            }
+        } else {
+            let empleadoExistente = buscarEmpleado(valorCedula);
+            if (empleadoExistente) {
+                empleadoExistente.nombre = valorNombre;
+                empleadoExistente.apellido = valorApellido;
+                empleadoExistente.sueldo = valorSueldo;
+                alert("Empleado modificado exitosamente.");
+                mostrarEmpleados();
+                guardarYDeshabilitar();
+            } else {
+                alert("No se encontró un empleado con la cedula " + valorCedula);
+            }
+
+        }
+    } else {
+        alert('Corregir los errores en las cajas de texto')
+    }
+}
+/*
+guardar = function () {
+
+    let valorCedula = recuperarTexto("txtCedula");
+    let valorNombre = recuperarTexto("txtNombre");
+    let valorApellido = recuperarTexto("txtApellido");
+    let valorSueldo = recuperarFloat("txtSueldo");
+
+    let clienteValido = validar(valorCedula, valorNombre, valorApellido, valorSueldo);
     if (clienteValido == true) {
         esNuevo = esNuevo;
     }
@@ -97,10 +142,10 @@ guardar = function () {
             guardarYDeshabilitar();
         } else {
 
-        }
-        
+        } 
     }
 }
+*/
 
 guardarYDeshabilitar = function () {
     document.getElementById("txtCedula").value = '';
