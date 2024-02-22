@@ -69,9 +69,9 @@ guardar = function () {
         esNuevo = esNuevo;
     }
 
-    if (esNuevo == true) {
+    let empleadoNuevo = {};
+    if (esNuevo) {
         let agregado;
-        let empleadoNuevo = {};
         empleadoNuevo.cedula = valorCedula;
         empleadoNuevo.nombre = valorNombre;
         empleadoNuevo.apellido = valorApellido;
@@ -86,7 +86,19 @@ guardar = function () {
             alert("Ya existe el empleado con cedula " + valorCedula);
         }
     } else {
-        let empleado = buscarEmpleado(empleado.cedula);
+        let empleadoR = buscarEmpleado(empleadoNuevo.cedula);
+
+        if(empleadoR) {
+            empleadoR.nombre = valorNombre;
+            empleadoR.apellido = valorApellido;
+            empleadoR.sueldo = valorSueldo;
+            alert("Empleado modificado exitosamente.");
+            mostrarEmpleados();
+            guardarYDeshabilitar();
+        } else {
+
+        }
+        
     }
 }
 
