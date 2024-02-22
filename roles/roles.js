@@ -22,7 +22,7 @@ mostrarEmpleados = function () {
 
 buscarEmpleado = function (cedula) {
     let empleadoN;
-    let empleadoEncontrado = true;
+    let empleadoEncontrado = null;
     for (let i = 0; i < empleados.length; i++) {
         empleadoN = empleados[i];
         if (empleadoN.cedula == cedula) {
@@ -34,8 +34,8 @@ buscarEmpleado = function (cedula) {
 }
 
 agregarEmpleado = function (empleado) {
-    esNuevo = buscarEmpleado(empleado.cedula);
-    if (esNuevo == true) {
+    let empleadoBuscado = buscarEmpleado(empleado.cedula);
+    if (empleadoBuscado == null) {
         empleados.push(empleado);
         return true;
     }
@@ -44,8 +44,6 @@ agregarEmpleado = function (empleado) {
 
 guardar = function () {
 
-    let msgError = "";
-
     let valorCedula = recuperarTexto("txtCedula");
     let valorNombre = recuperarTexto("txtNombre");
     let valorApellido = recuperarTexto("txtApellido");
@@ -53,7 +51,7 @@ guardar = function () {
 
     let clienteValido = validar(valorCedula, valorNombre, valorApellido, valorSueldo);
 
-    if(clienteValido == true) {
+    if (clienteValido == true) {
         esNuevo = true;
     }
     /*
@@ -137,15 +135,7 @@ guardar = function () {
         if (agregado == true) {
             alert("Empleado guardado correctamente.");
             mostrarEmpleados();
-            document.getElementById("txtCedula").value = '';
-            document.getElementById("txtNombre").value = '';
-            document.getElementById("txtApellido").value = '';
-            document.getElementById("txtSueldo").value = '';
-            deshabilitarComponente("txtCedula");
-            deshabilitarComponente("txtNombre");
-            deshabilitarComponente("txtApellido");
-            deshabilitarComponente("txtSueldo");
-            deshabilitarComponente("btnGuardar");
+            guardarYDeshabilitar();
         } else {
             alert("Ya existe el empleado con cedula " + valorCedula);
         }
@@ -155,13 +145,25 @@ guardar = function () {
     }
 }
 
+guardarYDeshabilitar = function () {
+    document.getElementById("txtCedula").value = '';
+    document.getElementById("txtNombre").value = '';
+    document.getElementById("txtApellido").value = '';
+    document.getElementById("txtSueldo").value = '';
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente("txtNombre");
+    deshabilitarComponente("txtApellido");
+    deshabilitarComponente("txtSueldo");
+    deshabilitarComponente("btnGuardar");
+}
+
 ejecutarNuevo = function () {
     habilitarComponente("txtCedula");
     habilitarComponente("txtNombre");
     habilitarComponente("txtApellido");
     habilitarComponente("txtSueldo");
     habilitarComponente("btnGuardar");
-    
+
 }
 
 mostrarOpcionEmpleado = function () {
@@ -191,9 +193,33 @@ mostrarOpcionResumen = function () {
 }
 
 validar = function (cedula, nombre, apellido, sueldo) {
+    let msgError = "";
     let error = 0;
 
     // Valida que el campo cedula tenga 10 caracteres y sean solo digitos.
+    esCedulaValida = function () {
+        if (cedula == '') {
+            mostrarTexto("lblErrorCedula", "Este campo es obligatorio.");
+            error++;
+        } else if (cedula.length != 10) {
+            msgError = "La cedula debe tener 10 digitos.";
+            mostrarTexto("lblErrorCedula", msgError);
+            error++;
+        } else if (cedula.length == 10) {
+            for (let i = 0; i < cedula.length; i++) {
+                if (!esDigito(cedula[i])) {
+                    msgError = "La cedula debe contener solamente digitos.";
+                    mostrarTexto("lblErrorCedula", msgError);
+                    error++;
+                } else {
+                    mostrarTexto("lblErrorCedula", "");
+                }
+            }
+        }
+    }
+
+    esCedulaValida();
+    /*
     if (cedula != '') {
         if (cedula.length == 10) {
             for (let i = 0; i < cedula.length; i++) {
@@ -212,8 +238,32 @@ validar = function (cedula, nombre, apellido, sueldo) {
         mostrarTexto("lblErrorCedula", "Este campo es obligatorio.");
         error++;
     }
+    */
 
     // Valida que el campo nombre tenga 3 caracteres como minimo y sean solo mayusculas.
+    esNombreValido = function () {
+        if (nombre == '') {
+            mostrarTexto("lblErrorNombre", "Este campo es obligatorio.");
+            error++;
+        } else if (nombre.length < 3 || nombre.length > 10) {
+            msgError = "El nombre debe tener entre 3 y 10 caracteres.";
+            mostrarTexto("lblErrorNombre", msgError);
+            error++;
+        } else if (nombre.length >= 3 && nombre.length <= 10) {
+            for (let i = 0; i < nombre.length; i++) {
+                if (!esMayuscula(nombre[i])) {
+                    msgError = "El nombre debe estar en mayusculas.";
+                    mostrarTexto("lblErrorNombre", msgError);
+                    error++;
+                } else {
+                    mostrarTexto("lblErrorNombre", "");
+                }
+            }
+        }
+    }
+    esNombreValido();
+
+    /*
     if (nombre != '') {
         if (nombre.length >= 3 && nombre.length <= 10) {
             for (let i = 0; i < nombre.length; i++) {
@@ -232,15 +282,44 @@ validar = function (cedula, nombre, apellido, sueldo) {
         mostrarTexto("lblErrorNombre", "Este campo es obligatorio.");
         error++;
     }
+    */
 
     // Valida que el campo apellido tenga como minimo 3 caracteres y que sean solo mayusculas.
+    /*
+    esApellidoValido = function() {
+        if(apellido == '') {
+            mostrarTexto("lblErrorApellido", "Este campo es obligatorio.");
+            error++;
+        } else if(apellido.length < 3 || apellido.length > 10) {
+            msgError = "El apellido debe tener entre 3 y 10 caracteres.";
+            mostrarTexto("lblErrorApellido", msgError);
+            error++;
+        } else if (apellido.length >= 3 && apellido.length <= 10) {
+            for (let i = 0; i < apellido.length; i++) {
+                if (!esMayuscula(apellido[i])) {
+                    msgError = "El apellido debe estar en mayusculas.";
+                    mostrarTexto("lblErrorApellido", msgError);
+                    error++;
+                } else {
+                    mostrarTexto("lblErrorApellido", "");
+                }
+            }
+        } 
+    }
+
+    esApellidoValido();
+*/
+
     if (apellido != '') {
         if (apellido.length >= 3 && apellido.length <= 10) {
             for (let i = 0; i < apellido.length; i++) {
                 if (!esMayuscula(apellido[i])) {
-                    msgError = "El apellido debe estar en mayusculas."
+                    msgError = "El apellido debe estar en mayusculas.";
                     mostrarTexto("lblErrorApellido", msgError);
                     error++;
+                    break;
+                } else {
+                    mostrarTexto("lblErrorApellido", "");
                 }
             }
         } else {
@@ -253,33 +332,39 @@ validar = function (cedula, nombre, apellido, sueldo) {
         error++;
     }
 
+
     // Valida que el valor ingresado en sueldo sea un flotante.
-    if (!isNaN(sueldo)) {
+
+
+
         if (sueldo >= 400 && sueldo <= 5000) {
             let numFloat = esFlotante(sueldo);
             if (numFloat == false) {
                 msgError = "El valor ingresado debe ser con decimal.";
-                mostrarTexto("lblErrorCedula", "Este campo es obligatorio.");
+                mostrarTexto("lblErrorSueldo", msgError);
                 error++;
+            } else {
+                mostrarTexto("lblErrorSueldo", "");
             }
         } else {
-            msgError = "El valor ingresado no esta dentro del rango válido.";
-            mostrarTexto("lblErrorSueldo", msgError);
-            error++
+            if(isNaN(sueldo)) {
+                mostrarTexto("lblErrorSueldo", "Este campo es obligatorio.");
+                error++;
+            } else {
+                msgError = "El valor ingresado debe estar entre 400 y 5000.";
+                mostrarTexto("lblErrorSueldo", msgError);
+                error++;
+            }
         }
-    } else {
-        msgError = "Este campo es obligatorio.";
+  /*
+        msgError = "Debe ingresar un número válido.";
         mostrarTexto("lblErrorSueldo", msgError);
         error++;
-    }
-    if(error == 0) {
-        mostrarTexto("lblErrorCedula", "");
-        mostrarTexto("lblErrorNombre", "");
-        mostrarTexto("lblErrorApellido", "");
-        mostrarTexto("lblErrorSueldo", "");
+    */
+
+    if (error == 0) {
         return true;
     } else {
         return false
     }
-
 }
