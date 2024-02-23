@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 body {
     background-size: cover;
     margin-left: 0px;
@@ -16,9 +20,8 @@ body {
     flex-direction: column;
     flex: 1;
     border: 1px solid;
-    border-color: #217023;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    background-color: #217023;
+    padding: 15px 0;
 }
 
 .principal {
