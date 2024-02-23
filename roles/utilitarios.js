@@ -83,8 +83,8 @@ esDigito = function(caracter) {
 
 esMayuscula = function(caracter) {
     let mayuscula = false;
-    let ascci = caracter.charCodeAt(0);
-    if(ascci > 64 && ascci < 91) {
+    let ascii = caracter.charCodeAt(0);
+    if(ascii > 64 && ascii < 91) {
         mayuscula = true;
     } else {
         mayuscula = false;
